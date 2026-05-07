@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-cipherchat
+  labels:
+    app: backend-cipherchat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-cipherchat
+  template:
+    metadata:
+      labels:
+        app: backend-cipherchat
+    spec:
+      containers:
+      - name: backend-cipherchat
+        image: ijaymane/back-cipherchat:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        env:
+        # الإعدادات الخاصة بـ MySQL باش ما يبقاش يطيح
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:mysql://mysql-service:3306/cipherchatdb?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+        - name: SPRING_DATASOURCE_USERNAME
+          value: "root"
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: "cipherchat123@" 
+        - name: SPRING_JPA_HIBERNATE_DDL_AUTO
+          value: "update"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+spec:
+  type: NodePort
+  selector:
+    app: backend-cipherchat
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
