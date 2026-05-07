@@ -1,0 +1,13 @@
+contexts:
+- name: 10.43.62.202:443
+  server: 10.43.62.202:443
+  user: 10.43.62.202:443
+current-context: 10.43.62.202:443
+prompts-enabled: false
+servers:
+- grpc-web-root-path: ""
+  insecure: true
+  server: 10.43.62.202:443
+users:
+- auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcmdvY2QiLCJzdWIiOiJhZG1pbjpsb2dpbiIsImV4cCI6MTc3ODIwNTYxMCwibmJmIjoxNzc4MTE5MjEwLCJpYXQiOjE3NzgxMTkyMTAsImp0aSI6IjY2M2VhNjAwLTRlYWEtNDEzNS04Yzc2LTMyZWE3OTcwMzUyMCJ9.QXJUiaZe3TTIpwCEy_L8rpyodpDDAqjITrv-m0HylgI
+  name: 10.43.62.202:443

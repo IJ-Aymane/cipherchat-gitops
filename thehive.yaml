@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thehive
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thehive
+  template:
+    metadata:
+      labels:
+        app: thehive
+    spec:
+      containers:
+      - name: thehive
+        image: strangebee/thehive:5.2
+        ports:
+        - containerPort: 9000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: thehive-service
+  namespace: default
+spec:
+  selector:
+    app: thehive
+  ports:
+  - port: 9000
+    targetPort: 9000
+  type: ClusterIP

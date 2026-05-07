@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cipherchat-gitops
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://kubernetes.default.svc' # Dummy repo bach ArgoCD may-hbasch
+    targetRevision: HEAD
+    path: .
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy: {} # Khawa = MANUAL POLICY nichen!

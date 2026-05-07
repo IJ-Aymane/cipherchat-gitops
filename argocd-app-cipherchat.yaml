@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cipherchat-gitops
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'file:///home/azureuser'   # L-masar d l-repo Git local dyalk
+    targetRevision: HEAD
+    path: .                             # Hit l-YAMLs dyalk f l-root nichen
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default                  # L-namespace fine ghadi y-kouno l-pods
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
