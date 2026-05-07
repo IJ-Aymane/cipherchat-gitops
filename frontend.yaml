@@ -18,6 +18,7 @@ spec:
       - name: frontend-cipherchat
         image: ijaymane/front-cipherchat:latest
         imagePullPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 80 # Nginx كيكونيكطي ف البورط 80 أوتوماتيكيا
 ---

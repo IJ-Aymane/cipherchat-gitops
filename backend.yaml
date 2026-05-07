@@ -18,6 +18,7 @@ spec:
       - name: backend-cipherchat
         image: ijaymane/back-cipherchat:latest
         imagePullPolicy: Always
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
